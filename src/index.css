@@ -15,6 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   flex: 1;
   font-family: Trebuchet MS, ariel, sans-serif;
+  min-height: 100vh;
 }
 
 code {
