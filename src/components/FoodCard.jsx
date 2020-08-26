@@ -16,9 +16,10 @@ function FoodCard(props) {
   }
 
   const toogleSelectCard = (e) => {
+    const { toogleSelectCard, cardIndex } = props;
     e.preventDefault();
     disableBlockHover();
-    props.toogleSelectCard(props.cardIndex);
+    toogleSelectCard(cardIndex);
   }
 
   const enableBlockHover = () => {
@@ -28,29 +29,37 @@ function FoodCard(props) {
   const disableBlockHover = () => {
     setBlockHover(true);
   }
-
+  const { selected, disabled, description, title, taste,selectedText,image, weight, disabledText } = props;
   return (
     <div className="card-wrapper">
-      <Card className="card" blockHover={blockHover} onMouseOut={enableBlockHover} onClick={toogleSelectCard} selected={props.selected} disabled={props.disabled} image={props.image} >
-        {props.disabled ? <div className="card__disabled"></div> : null}
+      <Card
+        className="card"
+        blockHover={blockHover}
+        onMouseOut={enableBlockHover}
+        onClick={toogleSelectCard}
+        selected={selected}
+        disabled={disabled}
+        image={image}
+      >
+        {disabled ? <div className="card__disabled"></div> : null}
         <div className="card__general">
           <div className="card__description">
-            <span className="card__description-span">{props.description}</span>
+            <span className="card__description-span">{description}</span>
           </div>
           <div className="card__title">
-            <h2 className="card__title-h2">{props.title}</h2>
+            <h2 className="card__title-h2">{title}</h2>
           </div>
           <div className="card__taste">
-            <h3 className="card__taste-h3">{props.taste}</h3>
+            <h3 className="card__taste-h3">{taste}</h3>
           </div>
           <div className="card__extras">
             {showExtras()}
           </div>
         </div>
 
-        <CardWeight selected={props.selected} disabled={props.disabled} className="card__weight">
+        <CardWeight selected={selected} disabled={disabled} className="card__weight">
           <div className="weight__amount">
-            <span className="weight__amount-span">{props.weight}</span>
+            <span className="weight__amount-span">{weight}</span>
           </div>
           <div className="weight__unit">
             <span className="weight__unit-span">кг</span>
@@ -58,12 +67,12 @@ function FoodCard(props) {
         </CardWeight>
       </Card>
       <div className="card__relevance">
-        <p className={`card__relevance-p ${props.disabled ? 'card__relevance-disabled' : ''} ${props.selected ? 'card__relevance-enabled' : ''}`}>
-          {props.disabled ?
+        <p className={`card__relevance-p ${disabled ? 'card__relevance-disabled' : ''} ${selected ? 'card__relevance-enabled' : ''}`}>
+          {disabled ?
             (<>
-              {props.disabledText || `Печалька, ${props.taste} закончился.`}
+              {disabledText || `Печалька, ${taste} закончился.`}
             </>) :
-            props.selected ? props.selectedText :
+            selected ? selectedText :
               (<>
                 Чего сидишь? Порадуй котэ,&nbsp;
                 <PurchaseLink className="card__relevance-a" href="" onClick={toogleSelectCard}>купи</PurchaseLink>
