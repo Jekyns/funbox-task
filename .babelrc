@@ -9,6 +9,7 @@
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
     "babel-plugin-styled-components",
+    "transform-object-assign",
     ["module-resolver", {
       "root": ["./src"],
       "alias": {
