@@ -29,7 +29,7 @@ function FoodCard(props) {
   const disableBlockHover = () => {
     setBlockHover(true);
   }
-  const { selected, disabled, description, title, taste,selectedText,image, weight, disabledText } = props;
+  const { selected, disabled, description, title, taste, selectedText, image, weight, disabledText } = props;
   return (
     <div className="card-wrapper">
       <Card
