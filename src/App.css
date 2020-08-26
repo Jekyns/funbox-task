@@ -1,7 +1,12 @@
+@font-face {
+  font-family: "Test";
+  src: url("./utils/Exo2.0-Thin.otf");
+}
+
 .App {
   text-align: center;
   height: 100%;
-  background: url('./images/background.png');
+  background: linear-gradient(180deg, rgb(0 0 0 / 50%) 0%, rgba(9,37,121,0) 50%, rgb(0 0 0 / 50%) 100%), url('./images/background.png');;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -50,6 +55,7 @@
 .App__title-h1 {
   color: #fff;
   text-align: center;
+  font-family: 'Test', sans-serif;
 }
 
 .App__cards {
